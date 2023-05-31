@@ -20,19 +20,6 @@
 
 #let hidden(content) = {}
 
-// Math display
-#let display(body) = {
-    if (repr(body.func()) == "equation") {
-        if (body.block) {
-            $#box(body)$
-        } else {
-            panic("The equation must be a block")
-        }
-    } else {
-        panic("The content is not a equation")
-    }
-}
-
 // matrix
 #let cmat(..args) = {
   let mat = if (type(args.pos().at(0)) != "array") { (args.pos(),) } else { args.pos() }

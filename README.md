@@ -32,6 +32,8 @@
   }
   math.mat(..mat_t)
 }
+
+#let differential(expr, var) = $(dif)/(dif var) expr$
 ```
 
 "typst-calculator":
@@ -40,6 +42,10 @@
 @func_mat()
 def convert_cmat(matrix):
     return sympy.Matrix(matrix).T
+    
+@func()
+def convert_differential(expr, var):
+    return sympy.Derivative(expr, var)
 ```
 
 There are decorators: `operator, relation_op, additive_op, mp_op, postfix_op, reduce_op, func, func_mat, constant`

@@ -33,7 +33,7 @@
   math.mat(..mat_t)
 }
 
-#let differential(expr, var) = $(dif)/(dif var) expr$
+#let derivative(expr, var) = $(dif)/(dif var) expr$
 ```
 
 "typst-calculator":
@@ -44,7 +44,7 @@ def convert_cmat(matrix):
     return sympy.Matrix(matrix).T
     
 @func()
-def convert_differential(expr, var):
+def convert_derivative(expr, var):
     return sympy.Derivative(expr, var)
 ```
 

@@ -13,6 +13,8 @@
   math.mat(..mat_t)
 }
 
+#let differential(expr, var) = $(dif)/(dif var) expr$
+
 // eval at
 #let evalat(body) = math.lr(body + "|")
 
@@ -20,12 +22,14 @@
 #let sign = math.op("sign")
 
 #hidden[
-
 ```typst-calculator
 @func_mat()
 def convert_cmat(matrix):
     return sympy.Matrix(matrix).T
+    
+@func()
+def convert_differential(expr, var):
+    return sympy.Derivative(expr, var)
 ```
-
 ]
 
